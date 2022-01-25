@@ -1,19 +1,19 @@
 import React from 'react'
 
 
-const Square = ({value}) => {   
-    console.log(value);
-    return (
-        <button type='button'>{value}</button>          
-    )
-}
-
-
-// const Square = props => {   
-//     console.log(props);
+// const Square = ({value,children}) => {   
+//     console.log(children);
 //     return (
-//         <button type='button'>{props.value}</button>          
+//         <button type='button'>{children}</button>          
 //     )
 // }
+
+
+const Square = props => {   
+    console.log(props);
+    return (
+        <button type='button'>{props.children}</button>          
+    )
+}
 
 export default Square

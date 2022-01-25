@@ -9,6 +9,10 @@ export const board = () => {
                 <Square value={1} />
                 <Square value={2} />
                 <Square value={3} />
+                <Square>
+                    <p>as sdfgh h jjh</p>
+                    sdhjjh gfdfg g fgh
+                </Square>
             </div>
 
             <div>
