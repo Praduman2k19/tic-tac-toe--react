@@ -1,30 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Square from './Square'
 
 export const board = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [board , setBoard]=useState(Array(9).fill(null));
+
+    console.log(board);
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [isXNext,setIsXNext]=useState(false);
+    const handSquareClick=position=>{
+        if(board[position])
+        return ;
+        setBoard(prev=>{
+            return prev.map((square,pos)=>{
+                if(pos===position)
+                return isXNext ? 'X' : 'O';
+                return square;
+            });
+        });
+        setIsXNext(prev=>!prev);
+    };
+
+    const randerSquare = position =>{
+        return(
+            <Square
+            value={board[position]}
+            onClick={()=>handSquareClick(position) }
+            />
+        );
+    }
+
+
     return (
         <div className='board'>
 
             <div className='board-row'>
-                <Square value={1} />
-                <Square value={2} />
-                <Square value={3} />
-                {/* <Square>
-                    <p>as sdfgh h jjh</p>
-                    sdhjjh gfdfg g fgh
-                </Square> */}
+                {randerSquare(0)}
+                {randerSquare(1)}
+                {randerSquare(2)}
             </div>
 
             <div className='board-row'>
-                <Square value={4} />
-                <Square value={5} />
-                <Square value={6} />
+                {randerSquare(3)}
+                {randerSquare(4)}
+                {randerSquare(5)}
             </div>
 
             <div className='board-row'>
-                <Square value={7} />
-                <Square value={8} />
-                <Square value={9} />
+                {randerSquare(6)}
+                {randerSquare(7)}
+                {randerSquare(8)}
             </div>
 
         </div>
