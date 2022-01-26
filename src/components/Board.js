@@ -1,26 +1,8 @@
 import React, { useState } from 'react'
 import Square from './Square'
 
-export const board = () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [board , setBoard]=useState(Array(9).fill(null));
+export const board = ({board , handSquareClick}) => {
 
-    console.log(board);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [isXNext,setIsXNext]=useState(false);
-    const handSquareClick=position=>{
-        if(board[position])
-        return ;
-        setBoard(prev=>{
-            return prev.map((square,pos)=>{
-                if(pos===position)
-                return isXNext ? 'X' : 'O';
-                return square;
-            });
-        });
-        setIsXNext(prev=>!prev);
-    };
 
     const randerSquare = position =>{
         return(

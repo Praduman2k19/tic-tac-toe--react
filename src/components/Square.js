@@ -2,6 +2,7 @@ import React from 'react'
 
 
 const Square = ({value,onClick}) => {   
+    console.log("square", "rerander");
 
     return (
     <button type='button' className='square' onClick={onClick}>{value}</button>          
