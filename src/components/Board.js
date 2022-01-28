@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import Square from './Square'
 
-export const board = ({board , handSquareClick}) => {
+export const board = ({board , handSquareClick, winningSquares}) => {
 
 
     const randerSquare = position =>{
+        console.log(position);
+        const isWinningSquare=winningSquares.includes(position)
         return(
             <Square
             value={board[position]}
-            onClick={()=>handSquareClick(position) }
+            onClick={()=>handSquareClick(position) } 
+            isWinningSquare={isWinningSquare}
             />
         );
-    }
+    };
 
 
     return (
@@ -37,6 +40,6 @@ export const board = ({board , handSquareClick}) => {
 
         </div>
     )
-}
+};
 
 export default board

@@ -7,17 +7,18 @@ import StatusMessage from './components/StatusMessage';
 import { calculateWinner } from './helpers';
 import './SCSS/root.scss'
 
+const NEW_GAME=[{board:Array(9).fill(null),isXNext:true}];
 function App() {
 
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const [history , setHistory]=useState([{board:Array(9).fill(null),isXNext:true}]);  
+      const [history , setHistory]=useState(NEW_GAME);  
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const [currentMove,setCurrentMove]=useState(0);
 
       const current=history[currentMove];
 
 
-      const winner = calculateWinner(current.board);
+      const {winner , winningSquares} = calculateWinner(current.board);
       console.log(winner)
       console.log(history);
 
@@ -40,11 +41,16 @@ function App() {
       const moveTo =(move)=>{
         setCurrentMove(move);
       }
+      const onNewGame=()=>{
+        setHistory(NEW_GAME);
+        setCurrentMove(0);
+      }
   return (
     <div className="app">
-      <h1>Tic-Tac-Toe</h1> <br></br><br></br>
-      <Board board={current.board} handSquareClick={handSquareClick} />
+      <h1>Tic-Tac-Toe</h1> 
       <StatusMessage winner={winner} current={current} />
+      <Board board={current.board} handSquareClick={handSquareClick} winningSquares={winningSquares} />
+      <button onClick={onNewGame}>Start new Game</button>
       <History history={history} moveTo={moveTo} currentMove={currentMove} />
     </div>
   );

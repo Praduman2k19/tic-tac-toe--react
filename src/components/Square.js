@@ -1,11 +1,13 @@
 import React from 'react'
 
 
-const Square = ({value,onClick}) => {   
-    console.log("square", "rerander");
+const Square = ({value,onClick , isWinningSquare}) => {   
 
     return (
-    <button type='button' className='square' onClick={onClick}>{value}</button>          
+        <button type='button' className='square' onClick={onClick} 
+            style={{background: isWinningSquare ? 'blue' : 'none'}}>
+            {value}
+        </button>          
     )
 }
 
