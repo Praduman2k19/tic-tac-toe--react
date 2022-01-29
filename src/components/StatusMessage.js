@@ -4,12 +4,13 @@ const StatusMessage = ({winner , current}) => {
 
     const noMoreLeft=current.board.every((el)=> el!==null);
   return(
-      <h2>
+      <div className='status-message '>
           
-          {winner && `${winner}'s player is winner`}
-          {!winner && !noMoreLeft && `Next player is ${current.isXNext ? 'X' : 'O'}`}
-          {! winner && noMoreLeft && 'Game tied.'}
-      </h2>
+          {winner && <> <span className={winner==='X' ? 'text-green' : 'text-orange'}>{winner}</span>'s player is winner </>}
+          {!winner && !noMoreLeft && <> Next player is <span className={current.isXNext ? 'text-green' : 'text-orange' } >{current.isXNext ? 'X' : 'O'}</span></>}
+          {! winner && noMoreLeft && <><span className='text-green'>X</span> and <span className='text-orange'>O </span>tied</>}
+
+      </div>
   )
 };
 
