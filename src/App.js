@@ -52,9 +52,10 @@ function App() {
       <StatusMessage winner={winner} current={current} />
       <Board board={current.board} handSquareClick={handSquareClick} winningSquares={winningSquares} />
       <button onClick={onNewGame} className={`btn-reset ${(winner || noMoreLeft) ? 'active' : ''}`}>Start new Game</button>
-      <h2 style={{fontWeight : 'normal'}}>Current game history</h2>
+      <h3 style={{fontWeight : 'normal'}}>Current game history</h3>
       <History history={history} moveTo={moveTo} currentMove={currentMove} />
       <div className='bg-balls' />
+      <div className='copyright'>ⓒ-Praduman2k19</div>
     </div>
   );
 }

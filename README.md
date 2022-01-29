@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+for scss ---
+----------------------------
+"parcel": "^1.12.4"
+npm install node sass
+
+
+Deployment to surge -----------------
+-----------------------------------------------
+-->> npm i -g surge
+-->> surge login
+-->> npm run build
+-->> surge build
